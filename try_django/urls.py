@@ -33,6 +33,8 @@ urlpatterns = [
     path('contact/', contact_page),
     path('', home_page),
     path('example', example_page),
-    path('blog/', blog_post_detail_page)
+    path('blog/<int:post_id>/', blog_post_detail_page),
+   # re_path(r'blog/(?p<post_id>\d+)/$', blog_post_detail_page),
+   
 
 ]
