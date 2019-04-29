@@ -5,8 +5,8 @@ from .models import BlogPost
 
 
 
-def blog_post_detail_page(request):
-    obj = BlogPost.objects.get(id=1) #query -> database -> data -> django renders it
+def blog_post_detail_page(request, post_id):
+    obj = BlogPost.objects.get(id=post_id) #query -> database -> data -> django renders it
     template_name = 'blog_post_detail.html'
     context = {"object": obj}
     return render(request, template_name, context)
