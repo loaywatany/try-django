@@ -14,7 +14,10 @@ class BLogPostModelForm(forms.ModelForm):
 
     def clean_title(self, *args, **kwargs):
         title = self.cleaned_data.get('title')
+        instance = self.instance
         qs = BlogPost.objects.filter(title__iexact=title)
-        if qs.exists():
+        if instance is not None:
+            qs = qs.exclude(pk=instance.pk)
+        if qs.exists():    
             raise forms.ValidationError("This title has already been used, Please enter something new")
         return title 
