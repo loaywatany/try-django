@@ -13,7 +13,7 @@ def about_page(request):
     return render(request, "about.html", {"title": "About us"})
 
 def contact_page(request):
-    return render(request, "contact.html", {"title": "Contact us"})
+    return render(request, "form.html", {"title": "Contact us"})
 
 
 def example_page(request):
