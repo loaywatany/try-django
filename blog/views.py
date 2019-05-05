@@ -9,7 +9,7 @@ from .models import BlogPost
 
 
 def blog_post_list_view(request):
-    qs = BlogPost.objects.all()
+    qs = BlogPost.objects.all().published()
     template_name = 'list.html'
     context = {"object_list": qs}
     return render(request, template_name, context)
